@@ -3,9 +3,9 @@ fn main() {
     ex2();
     println!("{}",ex3(String::from("n to gritando")));
     println!("{:?}",ex4(String::from("HEllo, World")));
-    // ex5();
-    // ex6();
-    // ex7();
+    ex5();
+    println!("{}",ex6(String::from("Bbabuble")));
+    println!("{}", ex7(String::from("S t ri n g com espa ço e tt oo da f orma ta da")));
     // ex8();
     // ex9();
     // ex10();
@@ -41,4 +41,19 @@ fn ex4(s: String) -> Vec<char> {
     let vogais: String = String::from("aeiouAEIOU");
     return s.chars().filter(|c| !vogais.contains(*c)).collect::<Vec<char>>();
     
+}
+fn ex5(){
+    /*Escreva um programa que declare uma string vazia e concatene-a com A
+    a String "Olá," e com a String "Mundo!". */
+    let vazia: String = String::new();
+    println!("{}", vazia + "Olá,"/*slice of string , enunciado errado */ +" Mundo!" );
+}
+fn ex6(s: String) ->String {
+    /*Implemente uma funçãp que receba uma String
+    e retorne uma nova String com os caracteres invertidos */
+    s.chars().rev().collect()
+}
+fn ex7(s: String) -> String {
+    /*Crie um função que receba uma String e retorne uma nova String com todos os espaços removidos */
+    String::from(s.replace(" ", ""))
 }
