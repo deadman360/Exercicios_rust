@@ -8,15 +8,17 @@ fn saudacoes(){
     println!("Olá, qual código voce gostaria de executar ?
     \n1-Sequenica Fibonacci
     \n2-Contador de Vogais
-    \n3-Jogo de advinhação");
+    \n3-Jogo de advinhação
+    \n4-Fatorial");
     io::stdin()
         .read_line(&mut opcao)
         .expect("Deu ruim");
     
     match opcao.trim(){
         "1" => fibonacci(),
-        "2" =>conta_vogal(),
+        "2" => conta_vogal(),
         "3" => guessing_game(),
+        "4" => fatorial(),
         _ => println!("Todo")
     }
 }
@@ -80,4 +82,7 @@ fn guessing_game() {
         "s" => guessing_game(),
          _ => println!("saindo...")
     }
+}
+fn fatorial(){
+    let input: u8
 }
