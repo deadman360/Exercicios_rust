@@ -9,7 +9,8 @@ fn saudacoes(){
     \n1-Sequenica Fibonacci
     \n2-Contador de Vogais
     \n3-Jogo de advinhação
-    \n4-Fatorial");
+    \n4-Fatorial
+    \n5-Contador de ocorrências");
     io::stdin()
         .read_line(&mut opcao)
         .expect("Deu ruim");
@@ -19,6 +20,7 @@ fn saudacoes(){
         "2" => conta_vogal(),
         "3" => guessing_game(),
         "4" => fatorial(),
+        "5" => conta_ocorrencias(),
         _ => println!("Todo")
     }
 }
@@ -84,5 +86,39 @@ fn guessing_game() {
     }
 }
 fn fatorial(){
-    let input: u8
+    let mut input: String = String::new();
+    println!("Me informe qual número gostaria de saber o valor do fatorial?");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Erro!");
+    
+    let num: u64 = input.trim().parse().expect("Numero inválido!!!");
+    let mut fatorial: u64 = 1;
+    for i in 1..=num{
+        fatorial *= i;
+    }
+    println!("o fatorial de {} é = {}",num, fatorial)
+}
+fn conta_ocorrencias(){
+    let mut input: String = String::new();
+    println!("Me informe uma lista de numeros, separados por virgulas");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Erro na conversão");
+
+    let lista: Vec<&str> = input.trim().split(",").collect();
+    println!("Agora me informe qual número voce gostaria que eu contasse as ocorrencias na lista");
+    let mut target: String = String::new();
+    io::stdin()
+        .read_line(&mut target)
+        .expect("Erro!");
+
+    let mut contador: i32 = 0;
+    for num in lista{
+        match num.cmp(&target.trim()) {
+            Ordering::Equal => contador +=1,
+            _ => continue            
+        }
+    }
+    println!("O número {} aparece {}x vezes", target, contador);
 }
